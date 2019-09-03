@@ -24,7 +24,7 @@ app.post('/', (req, res) => {
                     console.log(token);
     
                 } else {
-                    res.send('Email o contraseña incorrecta!')    
+                    res.send('Email o contraseña incorrecta')    
                     console.log('Email o contraseña incorrecta!');
     
                 }
