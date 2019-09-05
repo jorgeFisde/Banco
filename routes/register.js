@@ -5,7 +5,7 @@ const baseDatos = require('../servicio/conexionBD')
 
 // github studio 
 router.get('/', (req, res, next) => {
-    baseDatos.query("SELECT * FROM usuario", (err, rows) => {
+    baseDatos.query("SELECT * FROM Usuario", (err, rows) => {
 
         if (err) {
             console.log(err)
