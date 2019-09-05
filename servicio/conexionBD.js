@@ -4,10 +4,10 @@ const mysql = require("mysql");
 const conexion = mysql.createConnection(
     {
         host: "18.218.255.127",
+        port: "3036",
         user: "admin", 
         password: "kokielfd",
-        database: "banco",
-        multipleStatements : true
+        database: "banco"
     }
 )
 conexion.connect((err)=>{
