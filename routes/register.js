@@ -19,7 +19,7 @@ router.get('/', (req, res, next) => {
 
 router.post('/', (req, res) => {
     let emp = req.body
-    const sql = "INSERT INTO usuario (nombre,apellido,email,contraseña,fecha_Nacimiento)  values (?,?,?,?,?)"
+    const sql = "INSERT INTO Usuario (nombre,apellido,email,contraseña,fecha_Nacimiento)  values (?,?,?,?,?)"
     console.log();
 
     if (emp.contraseña = emp.ConfiContra) {

@@ -6,9 +6,9 @@ const baseDatos = require('../servicio/conexionBD')
 const datosLogin  = require('./login')
 
 router.get("/",(req,res, next)=>{
-    baseDatos.query("SELECT * FROM cuenta",(err,rows)=>{
+    baseDatos.query("SELECT * FROM Cuenta",(err,rows)=>{
         if (err) {
-            console.log("Error al ejecutar el query");
+            console.log(err);
             res.send("Hubo un error")
         }else{
             res.json(rows)
@@ -19,7 +19,7 @@ router.get("/",(req,res, next)=>{
 
 router.post('/',datosLogin.verificscionToken, (req, res) => {
     let emp = req.body
-    const sql = "INSERT INTO cuenta (id_Usuario,saldo,tipo)  values (?,?,?)"
+    const sql = "INSERT INTO Cuenta (id_Usuario,saldo,tipo)  values (?,?,?)"
     jwt.verify(req.token, 'my_secret_key',(err,data)=>{
         if (err) {
             res.sendStatus(403)

@@ -13,7 +13,7 @@ app.post('/', (req, res) => {
     let emp = req.body
     var email = emp.email
     var contraseña = emp.contraseña
-    const sql = "SELECT id,nombre,apellido,email,fecha_Nacimiento FROM usuario WHERE email = ? AND contraseña = sha1(?)"
+    const sql = "SELECT id,nombre,apellido,email,fecha_Nacimiento FROM Usuario WHERE email = ? AND contraseña = sha1(?)"
     if (email && contraseña) {
 
             baseDatos.query(sql, [email, contraseña], (err, results) => {
