@@ -8,7 +8,7 @@ router.get('/', (req, res, next) => {
     baseDatos.query("SELECT * FROM usuario", (err, rows) => {
 
         if (err) {
-            console.log('hubo un error')
+            console.log(err)
             res.send('error')
 
         } else {
