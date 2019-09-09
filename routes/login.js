@@ -36,7 +36,7 @@ app.post('/', (req, res) => {
         
   //  } else {
     //    res.send('Por favor inserta un email y un correo')
-        res.end()
+    //    res.end()
    // }
 
 })
