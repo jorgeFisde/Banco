@@ -19,8 +19,12 @@ app.post('/', (req, res) => {
             baseDatos.query(sql, [email, contraseña], (err, results) => {
                 if (results.length > 0) {
                     user = results[0]
-                    const token = jwt.sign({ user }, 'my_secret_key',{expiresIn: '1h'})
-                    res.json(token)
+                    const token = jwt.sign({ user }, 'my_secret_key',{expiresIn: '1h'},(err,token)=>{
+                        res.json({
+                            token: token
+                        })
+                    })
+                    
                     console.log(token);
     
                 } else {
