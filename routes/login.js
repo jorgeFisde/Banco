@@ -14,7 +14,7 @@ app.post('/', (req, res) => {
     var email = emp.email
     var contraseña = emp.contraseña
     const sql = "SELECT id,nombre,apellido,email,fecha_Nacimiento FROM Usuario WHERE email = ? AND contraseña = sha1(?)"
-    //if (email && contraseña) {
+    if (email && contraseña) {
 
             baseDatos.query(sql, [email, contraseña], (err, results) => {
                 if (results.length > 0) {
@@ -28,16 +28,16 @@ app.post('/', (req, res) => {
                     console.log(token);
     
                 } else {
-                    res.send(err)    
+                    res.send('Email o contraseña incorrecta')    
                     console.log('Email o contraseña incorrecta!');
     
                 }
             })
         
-  //  } else {
-    //    res.send('Por favor inserta un email y un correo')
-    //    res.end()
-   // }
+    } else {
+        res.send('Por favor inserta un email y un correo')
+        res.end()
+    }
 
 })
 
