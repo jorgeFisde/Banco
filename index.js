@@ -20,9 +20,9 @@ app.use('/api/login',login.app)
 app.use('/api/home',home)
 app.use('/api/transaccion',transac)
 
-app.get('/', (req,res,next)=>{
-    res.sendfile('./views/index.html')
-})
+//app.get('/', (req,res,next)=>{
+//    res.sendfile('./views/index.html')
+//})
 
 app.listen(app.get('port'),()=>{
     console.log("estoy conectado al puerto:" + app.get('port'));
