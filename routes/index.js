@@ -15,7 +15,7 @@ router.get('/',datosLogin.verificscionToken, (req, res) => {
             baseDatos.query("SELECT * FROM cuenta WHERE id_usuario = ? ",[data.user.id], (err, rows) => {
                 data.user.cuenta = {rows}
                 if (err) {
-                    console.log('hubo un error al consultar cuenta')
+                    console.log(err)
                     res.send('error')
         
                 } else {
