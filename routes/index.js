@@ -13,7 +13,7 @@ router.get('/',datosLogin.verificscionToken, (req, res) => {
         }else{
            
             baseDatos.query("SELECT * FROM Cuenta WHERE id_usuario = ? ",[data.user.id], (err, rows) => {
-                data.user.cuenta = rows[{}]
+                data.user.cuenta = rows[0]
                 if (err) {
                     console.log(err)
                     res.send('error')
