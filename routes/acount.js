@@ -6,7 +6,7 @@ const baseDatos = require('../servicio/conexionBD')
 const datosLogin = require('./login')
 
 router.get("/", datosLogin.verificscionToken, (req, res, next) => {
-    var sql = "SELECT * FROM Cuenta where idAND id_usuario = ?"
+    var sql = "SELECT * FROM Cuenta where id AND id_usuario = ?"
     jwt.verify(req.token, 'my_secret_key', (err, data) => {
         baseDatos.query(sql,[data.user.id], (err, rows) => {
             if (err) {
@@ -19,3 +19,4 @@ router.get("/", datosLogin.verificscionToken, (req, res, next) => {
         })
     })
 })
+module.exports = router
