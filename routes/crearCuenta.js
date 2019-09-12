@@ -5,17 +5,6 @@ const jwt = require("jsonwebtoken")
 const baseDatos = require('../servicio/conexionBD')
 const datosLogin  = require('./login')
 
-router.get("/",(req,res, next)=>{
-    baseDatos.query("SELECT * FROM Cuenta",(err,rows)=>{
-        if (err) {
-            console.log(err);
-            res.send("Hubo un error")
-        }else{
-            res.json(rows)
-            console.log('ejecucion exitosa')
-        }
-    })
-})
 
 router.post('/',datosLogin.verificscionToken, (req, res) => {
     let emp = req.body
