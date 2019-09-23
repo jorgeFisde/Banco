@@ -8,9 +8,9 @@ const datosLogin = require('../routes/login')
 router.post('/',datosLogin.verificscionToken,(req,res)=>{
      
 
-    var sql = 'SELECT * FROM Transaccion WHERE (id_Cuenta_Remitente = ? OR id_Cuenta_Destinatario = ?)'
+    var sql = 'SELECT * FROM Transaccion WHERE (id_Cuenta_Remitente = ? OR id_Cuenta_Destinatario = ?)  and fecha between ? and ?'
     jwt.verify(req.token,'my_secret_key',(err,data)=>{
-        baseDatos.query(sql,[req.body.numCuenta,req.body.otra],(err,result)=>{
+        baseDatos.query(sql,[req.body.numCuenta,req.body.otra,req.body.fecha1,req.body.fecha2],(err,result)=>{
             if (err) {
                 console.log(err)
                 res.send('error')
