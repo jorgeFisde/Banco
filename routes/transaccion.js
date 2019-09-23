@@ -5,10 +5,10 @@ const jwt = require('jsonwebtoken')
 const baseDatos = require('../servicio/conexionBD')
 const datosLogin = require('../routes/login')
 
-router.get('/',datosLogin.verificscionToken,(req,res)=>{
+router.post('/',datosLogin.verificscionToken,(req,res)=>{
     var sql = 'SELECT * FROM Transaccion WHERE (id_Cuenta_Remitente OR id_Cuenta_Destinatario) = ?'
     jwt.verify(req.token,'my_secret_key',(err,data)=>{
-        baseDatos.query(sql,[req.body.numCuenta],(err,rows)=>{
+        baseDatos.query(sql,[req.bodynumCuenta],(err,rows)=>{
             if (err) {
                 console.log(err)
                 res.send('error')
