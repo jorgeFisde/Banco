@@ -34,7 +34,7 @@ router.post('/crearTransaccion',datosLogin.verificscionToken,(req,res)=>{
             } else {
                 console.log(result);
                 
-                res.json(result)
+                res.send(result)
             }
         })
     })
