@@ -32,6 +32,8 @@ router.post('/crearTransaccion',datosLogin.verificscionToken,(req,res)=>{
                 res.send(err.sqlMessage)
     
             } else {
+                console.log(result);
+                
                 res.json(result)
             }
         })
