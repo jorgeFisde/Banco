@@ -6,9 +6,9 @@ const baseDatos = require('../servicio/conexionBD')
 const datosLogin = require('../routes/login')
 
 router.get('/',datosLogin.verificscionToken,(req,res)=>{
-    var sql = 'SELECT * FROM Cuenta,Transaccion WHERE Cuenta.id_usuario = ? AND Transaccion.id_cuenta_remitente = ?'
+    var sql = 'SELECT * FROM Transaccion WHERE id_Cuenta_Remitente = ? OR id_Cuenta_Destinatario = ?'
     jwt.verify(req.token,'my_secret_key',(err,data)=>{
-        baseDatos.query(sql,[data.user.id,req.body.numCuenta],(err,rows)=>{
+        baseDatos.query(sql,[req.body.numCuenta,req.body.numCuenta],(err,rows)=>{
             if (err) {
                 console.log(err)
                 res.send('error')
