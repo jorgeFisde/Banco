@@ -24,7 +24,7 @@ router.post('/crearTransaccion',datosLogin.verificscionToken,(req,res)=>{
     var emp = req.body
     var now = new Date()
     jwt.verify(req.token,'my_secret_key',(err,data)=>{
-        baseDatos.query(sql,[emp.idCuentaR,emp.idCuentaD,now,emp.cantidad],(err,result)=>{
+        baseDatos.query(sql,[emp.idCuentaR,emp.idCuentaD,now,emp.cantidad],(err,rows)=>{
             if (err) {
                 console.log(err)
   
@@ -32,7 +32,7 @@ router.post('/crearTransaccion',datosLogin.verificscionToken,(req,res)=>{
                 res.send(err.sqlMessage)
     
             } else {
-                console.log(result);
+                console.log(rows);
                 
                 res.send(result)
             }
