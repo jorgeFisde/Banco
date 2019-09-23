@@ -26,7 +26,7 @@ router.post('/crearTransaccion',datosLogin.verificscionToken,(req,res)=>{
     jwt.verify(req.token,'my_secret_key',(err,data)=>{
         baseDatos.query(sql,[emp.idCuentaR,emp.idCuentaD,now,emp.cantidad],(err,result)=>{
             if (err) {
-                console.log(err.sqlMessage)
+                console.log(err)
   
                 
                 res.send(err.sqlMessage)
