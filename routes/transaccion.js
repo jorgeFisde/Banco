@@ -14,7 +14,7 @@ router.post('/',datosLogin.verificscionToken,(req,res)=>{
                 res.send('error')
     
             } else {
-                console.log('hizo algo');
+                console.log(rows);
                 
                 res.json(rows)
             }
