@@ -18,11 +18,7 @@ router.post('/',datosLogin.verificscionToken,(req,res)=>{
             } else {
                 console.log(result);
                 
-                res.json(
-                    {
-                        transaccion: result
-                    }
-                )
+                res.json(result)
             }
         })
     })
