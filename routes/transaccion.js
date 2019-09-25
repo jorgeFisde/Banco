@@ -13,7 +13,7 @@ router.post('/',datosLogin.verificscionToken,(req,res)=>{
         baseDatos.query(sql,[req.body.numCuenta,req.body.otra,req.body.fecha1,req.body.fecha2],(err,result)=>{
             if (err) {
                 console.log(err)
-                res.send('error')
+                res.send(err.sqlMessage)
     
             } else {
                 console.log(result);
