@@ -17,7 +17,7 @@ router.post('/',datosLogin.verificscionToken, (req, res) => {
 
             if (err) {
                 console.log(err)
-                res.send('error')
+                res.send(err.sqlMessage)
     
             } else {
                 res.send("Se ha creado tu cuenta!")
