@@ -8,7 +8,7 @@ const datosLogin  = require('./login')
 
 router.post('/',datosLogin.verificscionToken, (req, res) => {
     let emp = req.body
-    const sql = "INSERT INTO Cuenta (id_Usuario,saldo,tipo)  values (?,?,?)"
+    const sql = "CALL Crear_cuenta(?,?,?)"
     jwt.verify(req.token, 'my_secret_key',(err,data)=>{
         if (err) {
             res.sendStatus(403)

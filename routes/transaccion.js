@@ -28,7 +28,7 @@ router.post('/',datosLogin.verificscionToken,(req,res)=>{
     })
 })
 router.post('/crearTransaccion',datosLogin.verificscionToken,(req,res)=>{
-    var sql = 'INSERT INTO Transaccion (id_Cuenta_Remitente,id_Cuenta_Destinatario,fecha,cantidad) VALUES (?,?,?,?)'
+    var sql = 'CALL Crear_transaccion(?,?,?,?)'
     var emp = req.body
     var now = new Date()
     jwt.verify(req.token,'my_secret_key',(err,data)=>{
