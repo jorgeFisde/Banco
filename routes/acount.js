@@ -19,4 +19,19 @@ router.get("/", datosLogin.verificscionToken, (req, res, next) => {
         })
     })
 })
+router.get("/cuentas_frecuentes", datosLogin.verificscionToken, (req, res, next) => {
+    var sql = "SELECT id_cuenta FROM cuentas_frecuentes where id_usuario = ?"
+    jwt.verify(req.token, 'my_secret_key', (err, data) => {
+        baseDatos.query(sql,[data.user.id], (err, rows) => {
+            if (err) {
+                console.log(err);
+                res.send("Hubo un error")
+            } else {
+                res.json(rows)
+                console.log('ejecucion exitosa')
+            }
+        })
+    })
+})
+
 module.exports = router
