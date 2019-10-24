@@ -34,4 +34,19 @@ router.get("/cuentas_frecuentes", datosLogin.verificscionToken, (req, res, next)
     })
 })
 
+router.post("/", datosLogin.verificscionToken, (req, res, next) => {
+    var sql = "CALL añadir_CF(?,?)"
+    jwt.verify(req.token, 'my_secret_key', (err, data) => {
+        baseDatos.query(sql,[req.body.cuenta,data.user.id], (err, rows) => {
+            if (err) {
+                console.log(err);
+                res.send("Hubo un error")
+            } else {
+                res.json(rows)
+                console.log('ejecucion exitosa')
+            }
+        })
+    })
+})
+
 module.exports = router
